@@ -9,6 +9,7 @@ import {
 import * as phonebookOperations from '../../redux/phonebook-operations';
 import s from '../ContactList/ContactList.module.css';
 import Loader from 'react-loader-spinner';
+import Error from '../Error/Error';
 
 export default function ContactList() {
   const contacts = useSelector(getFilteredContacts);
@@ -44,6 +45,7 @@ export default function ContactList() {
           timeout={3000} //3 secs
         />
       )}
+      {error && <Error message={error.message} />}
     </>
   );
 }
